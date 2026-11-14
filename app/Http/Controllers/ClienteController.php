@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Core\Responses\ApiResponse;
 use App\Models\Cliente;
+use Illuminate\Http\JsonResponse;
+
 class ClienteController extends Controller
 {
-    public function listarClientes()
+    public function listarClientes(): JsonResponse
     {
-    $clientes = Cliente::all();
-   return response()->json($clientes);
-    
-          
+        return ApiResponse::ok(Cliente::all());
     }
 }
